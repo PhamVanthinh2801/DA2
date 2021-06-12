@@ -1,0 +1,76 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+   {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href = "{% static 'blog/main.css' %}">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Playfair Display', serif;
+            background-image: url("/static/Home/img/header/br1.jpg"); 
+        }
+        .container{
+        
+            height:100%;
+            width:40%;
+        }
+        .content-section{
+            border-radius:25px;
+        }
+        .form-group{
+            font-size:15px;
+            font-weight: bold;
+        }
+        #login_text{
+            font-size:25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="container" style = " border-style: solid;
+                                    border-radius: 10px;
+                                    background-color: #F5F5F5;
+                                                 border-color: #E0E0E0;
+                                                 padding:15px 15px 15px 15px;
+                                                 margin-top:70px">
+
+
+        {% load crispy_forms_tags %}
+            <div class="content-section" style="">
+                <form method="POST">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb" style="text-align:center;color:#800000;"><a id="login_text">LOGIN</a></legend>
+                        {{ form|crispy }}
+                    </fieldset>
+                    <div class="form-group">
+                        <button class="btn btn-outline-info" type="submit">Login</button>
+                    </div>
+                </form>
+                <div class="border-top pt-3">
+                    <small class="text-muted">
+                        Need An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now</a>
+                    </small>
+                    <small class="text-muted">
+                       <a class="ml-2" href="{% url 'password_reset' %}">Forgot Password</a>
+                    </small>
+                    <small class="text-muted">
+                        <a class="ml-2" href="{% url 'Contents:contents' %}">Trang Chủ</a>
+                    </small>
+                </div>
+                
+            </div>
+
+</div>
+</body>
+
+</html>

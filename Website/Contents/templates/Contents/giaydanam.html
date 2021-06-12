@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  {% load static %}
+    <meta charset ="UTF-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <title>Asimo Shope</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    
+{% load pwa %}
+{% progressive_web_app_meta %}
+    <style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&family=Roboto+Slab:wght@300&display=swap');
+        body{
+         
+           font-family: 'Roboto', serif;
+           height:100%;
+           background-color:#f6f6f6;
+        }
+
+        .logo{
+          border: 5px solid #ddd;
+          border-radius: 45px;
+          padding-left:1px;     
+          margin-right:7px;     
+        }
+        
+        .navbar {
+          background-color: gray;
+          position:relative;
+          top: 0;
+        }       
+    
+        #layout-menu {
+          margin:auto;
+          background-color: lightgrey;
+          text-align: center;
+          border-radius: 7px;
+          font-weight:bold;
+          top: 0;
+        }
+		main{
+			width: 88%;
+			background: white;
+			margin:auto;
+			font-family: sans-serif;
+		}
+		.headerfilter{
+			width: 100%;
+			height: 100%;
+			padding-top: 30px;
+			padding-bottom: 30px;
+			
+		}
+		.headerfilter ul li {
+			list-style: none;
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 3px;
+			padding-bottom: 3px;
+			
+			margin: 0px;
+			float: left;
+			font-size: 16px;
+			border:1px solid #e5e5e5;
+
+		}
+		.headerfilter ul li a{
+			color: inherit;
+			text-decoration: none;
+		}
+		.headerfilter ul li.active a {
+			color:red;
+		}
+		.bodyfilter{
+			padding: 1px 1px;
+		}
+		.bodyfilter ul {
+			width: 100%;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		.bodyfilter ul li{
+			list-style: none;
+			width: 23.4%;
+			height: 400px;
+			padding: 10px;
+			margin: 10px;
+			border-radius: 10px;
+			background: whitesmoke;
+			overflow: hidden;
+			transition: 0.5s;
+			
+			
+
+		}
+		.bodyfilter ul li img{
+			width: 100%;
+			height: 75%;
+			border-radius: 5px;
+		}
+		.bodyfilter ul li p{
+			font-size: 18px;
+			line-height: 25px;
+		}
+		.bodyfilter ul li h5{
+			color: black;
+			padding: 5px;
+		}
+    </style>
+</head>
+<body>
+    {%include "templates/Home/header.html" %}
+	<main>
+		<div class="headerfilter">
+			<ul class="indicator">
+				<li data-filter="all" class="active"> <a href="#">Tất cả</a></li>
+				<li data-filter="g5"> <a href="#">dưới 500.000đ</a></li>
+				<li data-filter="g5_3"> <a href="#">500.000đ đến 3tr</a></li>
+				<li data-filter="g3t"> <a href="#">Trên 3tr</a></li>
+	
+				<li data-filter="g3t" class="active"> <a href="#">Thương hiệu</a></li>
+		
+				<li data-filter="g5"> <a href="#">ADIDAS</a></li>
+				<li data-filter="g5_3"> <a href="#">NIKE</a></li>
+				<li data-filter="g3t"> <a href="#">BUMA</a></li>
+			</ul>
+			
+		</div>
+		<div class="bodyfilter">
+			<ul class="items">
+				
+				<li data-category="g5">	
+					<img src="/media/images/giaynam/d1.jpg"  alt="">
+					<center><h5>200.000đ</h5>
+					<a href ="#" class="btn btn-primary">Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+				<li data-category="g5">	
+					<img src="/media/images/giaynam/d2.jpg"  alt="">
+					<center><h5>150.000đ</h5>
+					<a href ="#" class="btn btn-primary">Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+				<li data-category="g5">	
+					<img src="/media/images/giaynam/d3.jpg"  alt="">
+					<center><h5>390.000đ</h5>
+					<a href ="#" class="btn btn-primary" >Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+				<li data-category="g5">	
+					<img src="/media/images/giaynam/d4.jpg"  alt="">
+					<center><h5>300.000đ</h5>
+					<a href ="#" class="btn btn-primary" >Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+
+				<li data-category="g5">	
+					<img src="/media/images/giaynam/d5.jpg"  alt="">
+					<center><h5>180.000đ</h5>
+					<a href ="#" class="btn btn-primary" >Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+
+				<li data-category="g5_3">	
+					<img src="/media/images/giaynam/d5.jpg"  alt="">
+					<center><h5>3.000.000đ</h5>
+					<a href ="#" class="btn btn-primary" >Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+				<li data-category="g5_3">	
+					<img src="/media/images/giaynam/d5.jpg"  alt="">
+					<center><h5>2.800.000đ</h5>
+					<a href ="#" class="btn btn-primary" >Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+
+				<li data-category="g3t">	
+					<img src="/media/images/giaynam/d5.jpg"  alt="">
+					<center><h5>4.900.000đ</h5>
+					<a href ="#" class="btn btn-primary" >Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+				<li data-category="g3t">	
+					<img src="/media/images/giaynam/d5.jpg"  alt="">
+					<center><h5>9.900.000đ</h5>
+					<a href ="#" class="btn btn-primary" >Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+				</center>
+				</li>
+				
+			</ul>
+		</div>
+	</main>
+    {%include "templates/Home/footer.html" %}
+</body>
+</html>
+
+<script type="text/javascript">
+	let indicator = document.querySelector('.indicator').children;
+	let main = document.querySelector('.items').children;
+
+	for(let i=0; i<indicator.length; i++){
+
+		indicator[i].onclick = function(){
+			
+			for(let x=0; x<indicator.length;x++){
+				indicator[x].classList.remove('active');
+			}
+			this.classList.add('active');
+
+			const dispalyItems = this.getAttribute('data-filter');
+			for(let z=0; z < main.length; z++)
+			{
+				main[z].style.transform = 'scale(0)';
+				setTimeout(()=>{
+					main[z].style.display = 'none';
+				},500);
+
+				if((main[z].getAttribute('data-category') == dispalyItems)||dispalyItems =='all')
+				{
+					main[z].style.transform = 'scale(1)';
+					setTimeout(()=>{
+						main[z].style.display ='block';
+					},500);
+				}
+			}
+		}
+	}
+</script>
+
+
+
+
+
+
+

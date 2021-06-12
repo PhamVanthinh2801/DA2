@@ -1,0 +1,83 @@
+{% extends "templates/Home/base.html" %}
+{% block content %}
+<main role="main">
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+              </div>
+            {% endfor %}
+        {% endif %} 
+
+        
+        <div class="container mt-4">
+           <form class="needs-validation" name="frmthanhtoan" action="{% url 'Contents:Address' %}"  method="POST">
+                 {% csrf_token %}
+                
+
+
+                <div class="py-5 text-center">
+                   
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 order-md-2 mb-4">
+                       
+                     
+                    </div>
+
+                    <div class="col-md-8 order-md-1">
+                        <h4 class="mb-3">Mời thêm thông tin địa chỉ</h4>
+                    
+                        <div class="row">
+                            <div class="col-md-12">
+                              
+                            </div>
+                            <div class="col-md-12">
+                              
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_diachi">Địa chỉ</label>
+                                    {{form.address}}
+                            </div>
+                            <div class="col-md-12">
+                               
+                            </div>
+                            <div class="col-md-12">
+                               
+                            </div>
+                            <div class="col-md-12">
+                               
+                            </div>
+                            <div class="col-md-12">
+                              
+                            </div>
+                        </div>
+
+                      
+                        
+                        <div class="d-block my-3">
+                         
+                        </div>
+
+                        <hr class="mb-4">
+                        
+                          <button class="btn btn-primary btn-lg btn-block" type="submit" >Xác nhận</button>
+                        
+                         <hr class="mb-4">   
+                        
+                         <div class="action">
+                                    <a class="add-to-cart btn btn-default center"  href="{% url 'Contents:contents' %}" id="btnThemVaoGioHang">Trở về trang chủ</a>
+                                </div>   
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <!-- End block content -->
+    </main>
+    <br/>
+{% endblock %}
