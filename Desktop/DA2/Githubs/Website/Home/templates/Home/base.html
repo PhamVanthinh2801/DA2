@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  {% load static %}
+    <meta charset ="UTF-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1">
+    <title>Asimo Shope</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    
+{% load pwa %}
+{% progressive_web_app_meta %}
+    <style>
+   @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200&family=Roboto+Slab:wght@300&display=swap');
+        body{
+         
+           font-family: 'Roboto', serif;
+           height:100%;
+           background-color:#f6f6f6;
+        }
+
+        .logo{
+          border: 5px solid #ddd;
+          border-radius: 45px;
+          padding-left:1px;     
+          margin-right:7px;     
+        }
+        
+        .navbar {
+          background-color: gray;
+          position:relative;
+          top: 0;
+        }       
+    
+        #layout-menu {
+          margin:auto;
+          background-color: lightgrey;
+          text-align: center;
+          border-radius: 7px;
+          font-weight:bold;
+          top: 0;
+        }
+        .navbar-nav{
+          font-weight:bold;
+        }
+        #layout-sp{
+          margin-top:10px;
+        }
+        #text-ani {
+        font-size:20px;
+        text-align:center;
+        font-weight: bold;
+        position: relative;
+        animation-name: example;
+        animation-duration: 12s;
+        animation-iteration-count: infinite;
+        border-radius: 45px;
+        margin-top:10px;
+        margin-left:25%;
+        height: 50%;
+        width: 50%;
+      }
+        @keyframes example {
+          0%   {right:0px; top:0px;}
+          25%  {right:200px; top:0px;}
+          50%   {left:0px; top:0px;}
+          75%  {left:200px; top:0px;}
+          }
+        hr{
+          text-align:center;
+          border:1px solid;
+          
+          
+        width: 70%;
+          
+        }
+        #img-item{
+          border-radius: 15px;
+          border: 3px solid DarkGreen;	
+		    }
+        .card{
+         
+          text-align:center;
+          border-radius: 5px;
+          background: #fff;
+          box-shadow: 0 6px 10px rgba(0,0,0,.08), 0 0 6px rgba(0,0,0,.05);
+          transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
+          cursor: pointer;
+        }
+        .card:hover{
+          transform: scale(1.05);
+          box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0,0,0,.06);
+        }
+        
+    </style>
+</head>
+<body>
+    {%include "templates/Home/header.html" %}
+      {% block content %}
+      {% endblock %}
+    {%include "templates/Home/footer.html" %}
+</body>
+</html>

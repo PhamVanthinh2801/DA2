@@ -1,0 +1,6 @@
+django == 3.1.2
+pillow
+django-admin-interface
+django-rest-framework
+social-auth-app-django
+django-pwa

@@ -1,0 +1,122 @@
+{% extends "templates/Home/base.html" %}
+
+{% block content %}
+    <main role="main">
+        {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+              </div>
+            {% endfor %}
+        {% endif %} 
+        <div class="container mt-4">
+           <form class="needs-validation" name="frmthanhtoan" action="{% url 'Contents:thanhtoan' %}"  method="POST">
+                 {% csrf_token %}
+                <div class="py-5 text-center">
+                    <i class="fa fa-credit-card fa-4x" aria-hidden="true"></i>
+                    <h2>Thanh toán</h2>
+                    <p class="lead">Vui lòng kiểm tra thông tin Khách hàng, thông tin Giỏ hàng trước khi Đặt hàng.</p>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 order-md-2 mb-4">
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span >Giỏ hàng</span>
+                            <span class="badge badge-secondary badge-pill">{{myorder.count}}</span>
+                        </h4>
+                        <ul class="list-group mb-3">
+                           {% for order in myorder %}                        
+                            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                                <div>
+                                    <h6 class="my-0">{{order.product.Name}}</h6>
+                                    <small class="text-muted">{{order.product.Name}} x {{order.number}}</small>
+                                </div>
+                                <span class="text-muted">{{order.TotalOderProduct}}</span>
+                            </li>
+                         {%endfor%}
+                        </ul>                    
+                        <h4 class="d-flex justify-content-between align-items-center mb-3">
+                            <span >Tổng</span>
+                            <span class="badge badge-secondary badge-pill">{{total}}</span>
+                        </h4>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Mã khuyến mãi">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary">Xác nhận</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 order-md-1">
+                        <h4 class="mb-3">Thông tin khách hàng</h4>         
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="kh_ten">Họ tên</label>
+                                <input type="text" class="form-control" name="kh_ten" id="kh_ten" value="{{InfomationUsers.user}}" readonly="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_gioitinh">Giới tính</label>
+                                <input type="text" class="form-control" name="kh_gioitinh" id="kh_gioitinh" value="{{InfomationUsers.gender}}" 
+                                  readonly="">                                    
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_diachi">Địa chỉ</label>
+                                 <select class="form-control" name="item_id">
+                                     {% for address in addaddress %}
+                                         <option  value="{{ address.id }}">{{ address.address }}</option>
+                                     {% endfor %}
+                                 </select>
+                             </div>
+                            <div class="col-md-12">
+                                <label for="kh_dienthoai">Điện thoại</label>
+                                <input type="text" class="form-control" name="" id="kh_dienthoai"
+                                    value="{{InfomationUsers.phone}}" readonly="">
+                                
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_email">Email</label>
+                                <input type="text" class="form-control" name="kh_email" id="kh_email"
+                                    value="{{email.user.email}}" readonly="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_ngaysinh">Ngày sinh</label>
+                                    <input type="text" class="form-control" name="  " id="kh_ngaysinh"
+                                    value="{{InfomationUsers.bridday}}" readonly="">                               
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_cmnd">CMND</label>
+                                <input type="text" class="form-control" name=" " id="kh_cmnd" value="{{InfomationUsers.identify}}"
+                                    readonly="">                                    
+                            </div>
+                        </div>
+                        <h4 class="mb-3">Hình thức thanh toán</h4>
+                        
+                        <div class="d-block my-3">
+                          {% for value, name in form.fields.paymentoption.choices %}
+                            <div class="custom-control custom-radio">
+                                <input id="{{ name }}" name="paymentoption" type="radio" class="custom-control-input" required=""
+                                    value="{{ value }}">
+                                <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
+                            </div>
+                           
+                             {% endfor %}
+                        </div>
+
+                        <hr class="mb-4">
+                        
+                          <button class="btn btn-primary btn-lg btn-block" type="submit" name="btnDatHang">Đặt hàng</button>
+                        
+                         <hr class="mb-4">   
+                        
+                         <div class="action">
+                                    <a class="add-to-cart btn btn-default center"  href="" id="btnThemVaoGioHang">Trở về trang chủ</a>
+                                </div>   
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+    <br/>
+{% endblock %}
