@@ -1,6 +1,7 @@
 
 from pathlib import Path
 import os
+import django_heroku
 from django.conf import settings
 from django.core.mail import send_mail
 
@@ -174,3 +175,5 @@ GRAPH_MODELS = {
   'all_applications': True,
   'group_models': True,
 }
+#active django-heroku
+django_heroku.settings(locals())
