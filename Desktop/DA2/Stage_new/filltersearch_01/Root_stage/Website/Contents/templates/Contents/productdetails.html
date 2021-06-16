@@ -1,0 +1,119 @@
+{% extends "templates/Home/base.html" %}
+{% block content %}
+
+ <div class="container" style="margin-top: 35px;margin-bottom: 35px;"> 
+    <p style="font-size:20px;margin-top:10px;" ><u href="#">Trang Chủ </u> / <u href="#"> Giày Nữ</u></p>
+        <div class="row" style="">
+
+        		<div class="col-sm-12 col-md-8 col-lg-8" style="">
+
+        					 <div class="row" style="">
+        					 		<div class="col-sm-12 col-md-4 col-lg-4" style="">
+
+											<div>
+											    <img class="card-img-top" src="{{productdetail.image.url}}" height="250px" weight="250px" style="border-radius: 10px;">
+											</div> 
+
+
+        					 		</div>
+
+        					 		<div class="col-sm-12 col-md-8 col-lg-8" style="">
+                                      
+
+								        	<div style ="color:black"><h3>Sản Phẩm: {{productdetail.Name}}</h3></div>
+
+								            <h5 style="color: red;"><strong>Giá :</strong> {{productdetail.price}} VNĐ</h5>
+								            
+								            <div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+												<label class="form-check-label" for="inlineRadio1"><strong>Trắng</strong></label>
+											  </div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+												<label class="form-check-label" for="inlineRadio2"><strong><a style="color: red;">Đỏ</a></strong></label>
+											</div>
+											<div class="form-check form-check-inline">
+												<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+												<label class="form-check-label" for="inlineRadio2"><a style="color:blue">Xanh</a></label>
+											</div>
+											 
+
+								            
+								            <label for="inputsm">Chọn Size:</label>
+								            <select class="browser-default custom-select" style="height:40px;width:20%;">
+								                <option selected>.</option>
+								                <option value="1">S</option>
+								                <option value="2">M</option>
+								                <option value="3">L</option>
+								            </select>   
+								             <div class="mt-3" >
+								                      <a class="btn btn-success" href="" ><span class="fas fa-shopping-cart">  Giỏ hàng</span></a>
+								                      <a class="btn btn-success" href="" ><span class="fas fa-hand-holding-usd">  Mua ngay</span></a>
+								                 
+								            </div>
+
+                                           
+            
+        					 				
+        					 		</div>
+        					 </div>
+                            <hr>
+                             <div style = "padding:auto;" >
+								<center><h5 style="color:black"><strong>MÔ </strong></h5></center>
+									<div>
+										<p>Giày Lười Nam Cơ Bản Phong Cách Trẻ Trung 
+
+											Giảm Giá Chỉ Còn: 299.000Đ
+											
+											Miễn phí vận chuyển (99 khách đầu tiên)
+											
+											 Phù hợp đi làm, đi chơi, thể dục thể thao
+											
+											Ưu đãi duy nhất hôm nay
+											<img class="card-img-top" src="{{productdetail.image.url}}" height="450px" weight="450px" style="border-radius: 10px;" >
+											<p>Ưu đãi duy nhất hôm nay</p>
+											<img class="card-img-top" src="{{productdetail.image.url}}" height="450px" weight="450px" style="border-radius: 10px;">
+											
+											
+										</p>
+									</div>
+                                                   
+							</div>
+        		</div>
+
+
+        		<div class="col-sm-12 col-md-4 col-lg-4" style="background-color: #F5F5F5;padding: 20px 20px 20px 20px ;border-left: 1px solid;">
+        				 <center><h5 style="color:black"><strong>BÌNH LUẬN CỦA KHÁCH HÀNG</strong></h5></center>
+                        <hr>
+						<div style="margin-top: 10px;">
+							<p><strong>Phạm Văn Thịnh</strong>: Mình mới mua sản phẩm này, đi vừa với chân và cực kỳ êm, hình ảnh chụp khi vừa mới mua về nè</p>
+							<img class="card-img-top" src="{{productdetail.image.url}}" height="200px" weight="150px" style="border-radius: 10px;">
+						</div>
+						<div style="margin-top: 10px;">
+							<p><strong>Đinh Quang Trung</strong>: Sản phẩm đẹp, vừa với giá tiền, nên mua nhé mọi người</p>
+							<img class="card-img-top" src="{{productdetail.image.url}}" height="200px" weight="150px" style="border-radius: 10px;">
+						</div>
+						<div style="margin-top:10px;">
+						<center ><h5><a href="url"><i class="fas fa-angle-double-right"></i>  xem thêm bình luận</a></h5></center>
+						</div>
+						<center><h5 style="color:black;margin-top: 90px;"><strong>CỬA HÀNG ĐANG CÒN SẢN PHẨM</strong></h5></center>
+						<hr>
+						<ul style="list-style-type:disc">
+							<li><strong>157-159 Nguyễn Thị Minh Khai, P. Phạm Ngũ Lão, Q. 1<strong></li>
+							<li>888 Tỉnh Lộ 10, Phường Bình Trị Đông A, Quận Bình Tân</li>
+							<li>139 Trần Não, Ấp Bình Khánh 3, Phường Bình An, Quận 2</li>
+						</ul>
+						<hr>
+						<ul style="list-style-type:disc">
+							<li>Tình trạng</li>
+							<p>Hàng mới 100% chính hẵng</p>
+							<li>Bảo hành</li>
+							<p>Bảo hành chính hẵng adidas 2 tháng</p>
+							<li>Đổi trả</li>
+							<p>Không mất phí đổi trả</p>
+						</ul>
+        		</div>
+       	</div>
+</div>
+{%include "Contents/sanphamlienquan.html" %}
+{% endblock %}

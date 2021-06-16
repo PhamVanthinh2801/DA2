@@ -1,0 +1,111 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+   {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href = "{% static 'blog/main.css' %}">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+         html,body{
+               font-family: 'Playfair Display', serif;
+                
+                
+              
+        }
+        .container{
+   
+        }
+       div{
+           text-align:center;
+       }
+      
+    </style>
+</head>
+<body>
+
+     {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                {{ message }}
+              </div>
+            {% endfor %}
+        {% endif %} 
+
+
+ <h2 class="text-center">Đơn Hàng Của Tôi</h2>
+            <div class="container"> 
+                <table id="cart" class="table table-hover table-condensed"> 
+                <thead> 
+                <tr> 
+                    <th style="width:30%">Tên sản phẩm</th> 
+                    <th style="width:20%">Hình ảnh</th> 
+                    <th style="width:20%">Size and color</th> 
+                    <th style="width:10%">Giá</th> 
+                    <th style="width:30%" class="text-center">Chốt đơn/Hủy đơn</th> 
+                    <th style="width:10%"></th> 
+                </tr> 
+                </thead> 
+               
+           
+              {% for order in myordertotal.products.all %}
+
+                    <tbody><tr> 
+                    <td data-th="Product"> 
+                        <div class="row"> 
+                            <div class="col-sm-4 hidden-xs" style="margin-left:100px;">
+                                {% comment %} {{order.product.Name}}x{{order.number}} {% endcomment %}
+                                {{order}}x{{order.number}}
+                            </div> 
+                        </div> 
+                    </td> 
+                    {% comment %} <td data-th="Price"> <p class="nomargin">{{order.product.image}}</p>  {% endcomment %}
+                    <td data-th="Price">
+                          <img class="item_images" src="{{order.product.image.url}}" width="100px" height="100px" style="margin-left:30px;border: 1px solid #ddd; border-radius: 4px;">
+                    </td> 
+                    <td data-th="Quantity">
+                        {{order.choosesizecolor}}
+                    </td> 
+                    {% comment %} <td data-th="Subtotal" class="text-center">{{total1}}</td>  {% endcomment %}
+                    <td class="hidden-xs text-center " ><p style="text-size:10px;width:110px ;font-weight:bold;">{{order.TotalOderProduct}}</td>
+                    {% comment %} <td data-th="Cancel" class="text-center"><a href="" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Hủy</a></td>  {% endcomment %}
+                    <td class="actions" data-th="">
+                        <button class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
+                        </button> 
+                        <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i>
+                        </button>
+                    </td> 
+
+                    </tr>
+
+                    </tbody><tfoot> 
+                    <tr class="visible-xs"> 
+                    </tr> 
+                    {% comment %} {%endif%} {% endcomment %}
+                    
+                {%endfor%}
+                
+                 
+                <tr > 
+                    <td><a  href="{% url 'Contents:giohang' %}" class="btn btn-warning"><i class="fa fa-angle-left"></i> Trở về đơn hàng </a>
+                    </td> 
+                    <td colspan="2" class="hidden-xs"> </td> 
+                       
+                        <td class="hidden-xs text-center " ><p style="text-size:10px;width:110px ;font-weight:bold;">Tổng tiền {{total1}}</p>
+                    </td>
+                    
+                    </td> 
+                </tr> 
+                </tfoot>
+            </table>
+        </div>
+</html>

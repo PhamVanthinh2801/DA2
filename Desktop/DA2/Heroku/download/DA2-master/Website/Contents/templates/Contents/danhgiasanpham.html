@@ -1,0 +1,50 @@
+<div class="container-fluid">
+        <div class="row">
+         <div class="col-sm-2 col-md-2 col-lg-2">
+
+         </div>
+         <div class="col-sm-8 col-md-8 col-lg-8">
+             {% for comment in Considerproduct.comments.all %}
+             <h4><strong> {{ comment.writer }}</strong></h4>
+                <h6><p>Stars:{{comment.Stars}}</p></h6>
+                <h6><p>Bình luận: {{comment.Content}}</p> <h6>
+                
+                {%if comment.image%}
+                  {% if forloop.first %}
+                  {% endif %}
+                  <img src="{{comment.image.url}}" class="img-responsive" style="width: 30%; height:20%;" />
+                  {% if forloop.counter|divisibleby:3 %}
+                  {% endif %}
+
+                    {% if forloop.last %}
+                    {% endif %}
+                 {%endif%}
+                <h6><p> {{comment.date}}</p></h6>
+             <hr/>
+            {%endfor%}        
+                
+
+            {%if user.username%}
+                <form action ="{% url 'Contents:danhgiasanpham' Considerproduct.slug %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br/>
+                    <p><label>Bình luận: </label>
+                          {{ forms.Content }}
+                    </p>
+                    <p><label>Start:</label>
+                          {{ forms.Stars }}
+                    </p>
+                     <p><label>Image</label>
+                          {{ forms.image }}
+                    </p>
+                      <br/>   
+                         <br/>    
+                    <input type="submit" value="Bình luận"/>
+                </form>
+            {%endif%}
+
+            <br/>
+            <a href ="{% url 'Contents:contents' %}" class="btn btn-primary">Quay lại</a> 
+        </div>
+    </div>
+</div>

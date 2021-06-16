@@ -1,0 +1,113 @@
+{% extends "templates/Home/base.html" %}
+
+{% block content %}
+ {% comment %} {%include "templates/blog/header.html" %} {% endcomment %}
+
+          {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %} 
+
+    <main id="header" role="main">
+      
+        <div class="container mt-4">
+           <form class="needs-validation" name="frmthanhtoan" action="{% url 'Contents:profile' %}"  method="POST">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-4 order-md-2 mb-4">
+                            
+                        <a class="add-to-cart btn btn-primary center"  href="" id="btnThemVaoGioHang">Doanh thu đơn hàng bởi {{myorder.user}}</a> 
+            </div>
+
+                    <div class="col-md-8 order-md-1">
+                        <h4 class="mb-3">Thông tin khách hàng</h4>
+                    
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label for="kh_ten">Họ tên</label>
+                                <input type="text" class="form-control" name="kh_ten" id="kh_ten" value="{{myorder.user}}" readonly="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_gioitinh">Giới tính</label>
+                                {% comment %} <input type="text" class="form-control" name="kh_gioitinh" id="kh_gioitinh" value="Nam" 
+                                    readonly=""> {% endcomment %}
+                                    {{form.gender}}  
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_diachi">Địa chỉ</label>
+                                {{form.adress}}  
+                                   
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_dienthoai">Điện thoại</label>
+                                {% comment %} <input type="text" class="form-control" name="{{form.phone}}" id="kh_dienthoai"
+                                    value="123456789" readonly=""> {% endcomment %}
+                                     {{form.phone}}
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_email">Email</label>
+                                <input type="text" class="form-control" name="kh_email" id="kh_email"
+                                    value="{{myorder.user.email}}" readonly="">
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_ngaysinh">Ngày sinh</label>
+                                {% comment %} <input type="text" class="form-control" name=" {{form.bridday}} " id="kh_ngaysinh"
+                                    value="15/02/1995" readonly=""> {% endcomment %}
+                                     {{form.bridday}}
+                            </div>
+                            <div class="col-md-12">
+                                <label for="kh_cmnd">CMND</label>
+                                {% comment %} <input type="text" class="form-control" name=" {{form.identify}}" id="kh_cmnd" value="123456789"
+                                    readonly=""> {% endcomment %}
+                                     {{form.identify}}
+                            </div>
+                        </div>
+
+                        {% comment %} <h4 class="mb-3">Hình thức thanh toán</h4> {% endcomment %}
+                        
+                        <div class="d-block my-3">
+                          {% comment %} {% for value, name in form.fields.paymentoption.choices %}
+                            <div class="custom-control custom-radio">
+                                <input id="{{ name }}" name="paymentoption" type="radio" class="custom-control-input" required=""
+                                    value="{{ value }}">
+                                <label class="custom-control-label" for="{{ name }}">{{ name }}</label>
+                            </div> {% endcomment %}
+                            {% comment %} <div class="custom-control custom-radio">
+                                <input id="httt-2" name="httt_ma" type="radio" class="custom-control-input" required=""
+                                    value="2">
+                                <label class="custom-control-label" for="httt-2">Chuyển khoản</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                                <input id="httt-3" name="httt_ma" type="radio" class="custom-control-input" required=""
+                                    value="3">
+                                <label class="custom-control-label" for="httt-3">Ship COD</label>
+                            </div> {% endcomment %}
+                             {% comment %} {% endfor %} {% endcomment %}
+                        </div>
+
+                        <hr class="mb-4">
+                       
+                          <button class="btn btn-primary btn-md btn-block" type="submit" name="btnDatHang">Sửa Thông Tin Khách hàng</button>
+                         
+                          <a class="btn btn-primary btn-md btn-block"  href="{% url 'Contents:Address' %}" id="btnThemVaoGioHang">Thêm địa chỉ</a>
+                         
+                          <hr class="mb-4">   
+                        
+                         <div class="action">
+                                    <a class="add-to-cart btn btn-default center"  href="{% url 'Contents:contents' %}" id="btnThemVaoGioHang">Trở về trang chủ</a>
+                                </div>   
+                    </div>
+                </div>
+            </form>
+
+        </div>
+        <!-- End block content -->
+    </main>
+    <br/>
+    {% endblock %}

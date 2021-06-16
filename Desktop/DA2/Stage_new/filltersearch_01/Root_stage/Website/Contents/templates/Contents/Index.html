@@ -1,0 +1,245 @@
+{% extends "templates/Home/base.html" %}
+
+{% block content %}
+<p id="text-ani">
+    SẢN PHẨM NỔI BẬT<br />
+</p>
+<div class="container" id="slider-item" 	>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" >
+      <div class="carousel-inner">
+        <div class="carousel-item active" >
+            <div class="row" >
+
+                <div class="col-4"><img class="d-block w-100"  src="/static/Home/img/slider/d1.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>	
+                <div class="col-4"><img class="d-block w-100" src="/static/Home/img/slider/d2.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>	
+                <div class="col-4"><img class="d-block w-100"  src="/static/Home/img/slider/d3.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>	
+                
+                
+            </div>   
+        </div>
+        <div class="carousel-item">
+          <div class="row" >
+        
+                   <div class="col-4"><img class="d-block w-100"  src="/static/Home/img/slider/g1.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>	
+                <div class="col-4"><img class="d-block w-100"  src="/static/Home/img/slider/g2.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>	
+                <div class="col-4"><img class="d-block w-100"  src="/static/Home/img/slider/g3.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>	
+
+            </div>  
+        </div>
+        <div class="carousel-item">
+          <div class="row" >
+         
+                <div class="col-4"><img class="d-block w-100"  src="/static/Home/img/slider/t1.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>	
+                <div class="col-4"><img class="d-block w-100"  src="/static/Home/img/slider/t2.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>	
+                <div class="col-4"><img class="d-block w-100"  src="/static/Home/img/slider/t3.jpg" alt="First slide" height="350px" width="350px" style="border-radius:10px;"></div>		
+            
+            </div>  
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+</div>	
+<hr>
+
+<div class="container" id ="product_item"> 
+
+        <div class="" style="float: right;margin-top: 30px;">
+          <a href="{% url 'Contents:giaynam'%}" style="color: black;"><i class="fas fa-angle-double-right"></i> <strong>Xem Thêm</strong></a>
+        </div>
+
+                <p id="text-ani" style="font-size:20px;">
+                        GIÀY NAM
+                    <hr>
+                </p>
+                <div class="row">
+  
+                {% for posts in Contents %}
+                {%if posts.category == 'SB' %}
+                        <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+                            <div class="card" style="margin:auto">
+                              <img class="card-img-top" src="{{posts.image.url}}" alt="Card image cap" height="250px" width="250px">
+                              <div class="card-body">
+                                <center><h5 class="card-title badge-secondary" style="border-radius:8px;">{{posts.get_category_display}}</h5></center>
+                                
+                                <h5 class="card-title">{{posts.price}} VNĐ</h5>
+                                <a href ="{% url 'Contents:productdetail' posts.slug %}" class="btn btn-primary" style="">Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+                              </div>
+                            </div>
+                        </div>
+                  {%endif%}
+                  {%endfor%}
+                 
+          
+           
+             </div>
+</div>      
+<br/>
+
+<div class="container" id ="product_item"> 
+
+        <div class=""  style="float: right;">
+          <div class="" style="float: right;margin-top: 30px;">
+            <a href="{% url 'Contents:giaynam'%}" style="color: black;"><i class="fas fa-angle-double-right"></i> <strong>Xem Thêm</strong></a>
+          </div>
+        </div>
+
+                <p id="text-ani" style="font-size:20px;">
+                        GIÀY NỮ
+                    <hr>
+                </p>
+                <div class="row">
+  
+                {% for posts in Contents %}
+                {%if posts.category == 'SG' %}
+                        <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+                            <div class="card" style="margin:auto">
+                              <img class="card-img-top" src="{{posts.image.url}}" alt="Card image cap" height="250px" width="250px">
+                              <div class="card-body">
+                                <center><h5 class="card-title badge-secondary" style="border-radius:8px;">{{posts.get_category_display}}</h5></center>
+                                
+                                <h5 class="card-title">{{posts.price}} VNĐ</h5>
+                                <a href ="{% url 'Contents:productdetail' posts.slug %}" class="btn btn-primary" style="">Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+                              </div>
+                            </div>
+                        </div>
+                        {%endif%}
+                  {%endfor%}
+                  
+             </div>
+</div>      
+<br/>
+
+
+
+<div class="container" id ="product_item"> 
+
+  <div class="" style="float: right;">
+    <div class="" style="float: right;margin-top: 30px;">
+      <a href="{% url 'Contents:giaynam'%}" style="color: black;"><i class="fas fa-angle-double-right"></i> <strong>Xem Thêm</strong></a>
+    </div>
+  </div>
+
+          <p id="text-ani" style="font-size:20px;">
+                  GIÀY TRẺ EM
+              <hr>
+          </p>
+          <div class="row">
+
+          {% for posts in Contents %}
+          {%if posts.category == 'SK' %}
+                  <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+                      <div class="card" style="margin:auto">
+                        <img class="card-img-top" src="{{posts.image.url}}" alt="Card image cap" height="250px" width="250px">
+                        <div class="card-body">
+                          <center><h5 class="card-title badge-secondary" style="border-radius:8px;">{{posts.get_category_display}}</h5></center>
+                          
+                          <h5 class="card-title">{{posts.price}} VNĐ</h5>
+                          <a href ="{% url 'Contents:productdetail' posts.slug %}" class="btn btn-primary" style="">Mua sản phẩm</a> <span class="badge badge-danger">New</span>
+                        </div>
+                      </div>
+                  </div>
+                  {%endif%}
+                {%endfor%}
+
+    
+     
+       </div>
+</div>      
+<br/>
+
+<div class="container" id ="product_item"> 
+          <p id="text-ani" style="font-size:20px;">
+                  PHỤ KIỆN ĐI KÈM
+              <hr>
+          </p>
+          <div class="row">
+
+           
+          
+                  <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+                      <div class="card" style="margin:auto">
+                        <h4>BAO TAY</h4>
+                        <div class="card-body">
+                          <img class=""  src="/static/Home/img/slider/e5.png" height='150px' width="150px"/>
+                        </div>
+                      </div>
+                  </div>
+
+                  <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+                    <div class="card" style="margin:auto">
+                      <h4>VÒNG ĐEO TAY</h4>
+                      <div class="card-body">
+                        <img class=""  src="/static/Home/img/slider/e6.png" height='150px' width="150px"/>
+                      </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+                  <div class="card" style="margin:auto">
+                    <h4>TẤT LEN ASIMO</h4>
+                    <div class="card-body">
+                      <img class=""  src="/static/Home/img/slider/e7.png" height='150px' width="150px"/>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+                <div class="card" style="margin:auto">
+                  <h4>DÂY LỊT</h4>
+                  <div class="card-body">
+                    <img class=""  src="/static/Home/img/slider/e8.png" height='150px' width="150px"/>
+                  </div>
+                </div>
+            </div>     
+       </div>
+
+       <div class="row">
+
+           
+          
+        <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+            <div class="card" style="margin:auto">
+              <h4>MŨ LEN</h4>
+              <div class="card-body">
+                <img class=""  src="/static/Home/img/slider/e1.png" height='150px' width="150px"/>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+          <div class="card" style="margin:auto">
+            <h4>DÂY NƠ</h4>
+            <div class="card-body">
+              <img class=""  src="/static/Home/img/slider/e3.png" height='150px' width="150px"/>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+        <div class="card" style="margin:auto">
+          <h4>VÒNG ĐEO CỔ</h4>
+          <div class="card-body">
+            <img class=""  src="/static/Home/img/slider/e2.png" height='150px' width="150px"/>
+          </div>
+        </div>
+    </div>
+
+    <div class="col-sm-1 col-md-6 col-lg-3" style="margin-top:20px;">
+      <div class="card" style="margin:auto">
+        <h4>KHĂN LEN</h4>
+        <div class="card-body">
+          <img class=""  src="/static/Home/img/slider/e4.png" height='150px' width="150px"/>
+        </div>
+      </div>
+  </div>
+      </div>
+</div>      
+<br/>
+{% endblock %}

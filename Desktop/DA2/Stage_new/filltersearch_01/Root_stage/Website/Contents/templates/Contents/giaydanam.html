@@ -1,0 +1,53 @@
+{% extends "templates/Home/base.html" %}
+{% block title  %}
+Blog
+{% endblock %}
+
+{% block content %}
+   <p id="text-ani" style="font-size:35px;">
+                SẢN PHẨM MỚI
+            <hr>
+        </p>
+
+
+  <div class="container"> 
+        <div class="row" style="">
+          {% for posts in giaynam %}
+           {%if posts.Name == 'Giày Da'%} 
+            <div class="col-sm-3 col-md-3 col-lg-3" style="margin-top:20px;">
+                <div class="card"  style="margin:auto">
+                  <img class="card-img-top" src="{{posts.image.url}}" alt="Card image cap" height="250px;" width="250px;">
+                  <div class="card-body">
+                    <center><h5 class="card-title badge-secondary" style="border-radius:8px;">{{posts.get_category_display}}</h5></center>
+                  <p> <h5 class="card-title">{{posts.Name}}</h5></p>
+                    <h5 class="card-title">{{posts.price}} Đ</h5>
+             
+                    <a href ="{% url 'Contents:productdetail' posts.slug %}" class="btn btn-primary" style="">Mua Sản Phẩm</a> <span class="badge badge-danger">New</span>
+                  </div>
+                </div>
+            </div>
+            {%endif%}
+          {%endfor%}
+        </div>
+      </div>
+      <br/>
+ {% if is_paginated %}
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    {%if page_obj.has_previous  %}
+                        <li class="page-item">
+                        <a class="page-link"  href="{{request.path}}?page={{page_obj.previous_page_number}}" tabindex="-1">Previous</a>
+                        </li>
+                    {%endif%}
+                    <li class="page-item active"><a class="page-link" href="{{request.path}}?page={{page_obj.number}}">{{ page_obj.number}}
+                         <span class="sr-only">(current)</span>
+                    </a></li>
+                    {%if page_obj.has_next %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{request.path}}?page={{page_obj.next_page_number}}">Next</a>
+                        </li>
+                     {%endif%}
+              </ul>
+            </nav>
+            {% endif %}
+{% endblock %}
